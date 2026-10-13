@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find welcoming programs, helpful services, and community events at Harbor Light Community Center.">
+  <title>Harbor Light Community Center</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17343b;
+      --muted-ink: #425d62;
+      --ocean: #0b5360;
+      --ocean-deep: #103b46;
+      --sea-glass: #dcefeb;
+      --sand: #f5f1e8;
+      --coral: #b33f2d;
+      --white: #fff;
+      --content-width: 70rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 1rem;
+    }
+
+    body {
+      margin: 0;
+      background: var(--sand);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--ocean);
+      text-underline-offset: 0.2em;
+      text-decoration-thickness: 0.08em;
+    }
+
+    a:hover {
+      color: var(--coral);
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--coral);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      z-index: 2;
+      top: 0.75rem;
+      left: 0.75rem;
+      padding: 0.65rem 1rem;
+      transform: translateY(-160%);
+      background: var(--white);
+      color: var(--ocean-deep);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-header {
+      background: var(--ocean-deep);
+      color: var(--white);
+    }
+
+    .header-inner,
+    .nav-inner,
+    main,
+    .footer-inner {
+      width: min(100% - 2.5rem, var(--content-width));
+      margin-inline: auto;
+    }
+
+    .header-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: clamp(1rem, 4vw, 3rem);
+      padding-block: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .center-and-space-content {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .site-logo {
+      display: block;
+      width: clamp(5.5rem, 12vw, 8rem);
+      height: clamp(5.5rem, 12vw, 8rem);
+      object-fit: contain;
+      border-radius: 50%;
+      background: var(--white);
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2 {
+      line-height: 1.15;
+      text-wrap: balance;
+    }
+
+    h1 {
+      max-width: 15ch;
+      margin-bottom: 0.65rem;
+      font-size: clamp(2rem, 5vw, 3.75rem);
+      letter-spacing: -0.025em;
+    }
+
+    .welcome {
+      max-width: 58ch;
+      margin-bottom: 0;
+      color: #e5f3f1;
+    }
+
+    .site-nav {
+      background: var(--white);
+      color: var(--ink);
+      border-bottom: 1px solid #c5d8d4;
+    }
+
+    .nav-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.5rem;
+      padding-block: 0.7rem;
+    }
+
+    .nav-list {
+      margin-block: 0;
+      padding-inline-start: 0;
+      list-style: none;
+    }
+
+    .nav-inner a {
+      display: inline-block;
+      padding: 0.45rem 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .decorative-banner {
+      display: block;
+      width: 100%;
+      height: clamp(3.75rem, 10vw, 7rem);
+      object-fit: cover;
+      background: var(--sea-glass);
+    }
+
+    main {
+      padding-block: clamp(2rem, 5vw, 4rem);
+    }
+
+    .content-section {
+      padding-block: clamp(1.75rem, 4vw, 3rem);
+      border-bottom: 1px solid #c5d8d4;
+      scroll-margin-top: 1rem;
+    }
+
+    .content-section h2,
+    .contact h2 {
+      margin-bottom: 1rem;
+      color: var(--ocean-deep);
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      letter-spacing: -0.02em;
+    }
+
+    .content-section p,
+    .contact p {
+      max-width: 68ch;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.8fr);
+      align-items: center;
+      gap: clamp(1.5rem, 5vw, 4rem);
+    }
+
+    .community-image {
+      display: block;
+      width: 100%;
+      min-height: 14rem;
+      max-height: 22rem;
+      object-fit: cover;
+      border-radius: 1rem;
+      background: var(--sea-glass);
+    }
+
+    .event {
+      margin-top: 1.25rem;
+      padding: clamp(1.25rem, 3vw, 2rem);
+      background: var(--sea-glass);
+      border-radius: 1rem;
+    }
+
+    .event p:last-child {
+      margin-bottom: 0;
+    }
+
+    .event-name {
+      color: var(--ocean-deep);
+      font-size: 1.25rem;
+    }
+
+    .event time {
+      font-weight: 700;
+    }
+
+    .site-footer {
+      padding-block: clamp(2rem, 5vw, 3.5rem);
+      background: var(--ocean-deep);
+      color: var(--white);
+    }
+
+    .site-footer h2 {
+      color: var(--white);
+    }
+
+    .site-footer a {
+      color: #c4eee6;
+    }
+
+    .site-footer a:hover {
+      color: var(--white);
+    }
+
+    .copyright {
+      margin: 2rem 0 0;
+      padding-top: 1rem;
+      border-top: 1px solid #52717a;
+      color: #e5f3f1;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 42rem) {
+      .header-inner {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        justify-items: start;
+      }
+
+      .center-and-space-content {
+        padding: 10px 0;
+      }
+
+      .nav-inner {
+        gap: 0.2rem 1rem;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="center-and-space-content">
+        <img class="site-logo" src="logo.jpg" alt="Harbor Light Community Center Logo">
+      </div>
+      <div>
+        <h1>Harbor Light Community Center</h1>
+        <p class="welcome">A welcoming place to learn, connect, and build a stronger community together.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <ul class="nav-inner nav-list">
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Our Services</a></li>
+      <li><a href="#events">Join Our Events</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <img class="decorative-banner" src="banner.jpg" alt="" aria-hidden="true">
+
+  <main id="main-content">
+    <section class="content-section" id="about">
+      <h2>About Us</h2>
+      <div class="about-layout">
+        <div>
+          <p>Harbor Light Community Center brings neighbors together in a friendly, inclusive space. We offer opportunities to learn, share skills, and take part in community life at every age.</p>
+          <p>Whether you are visiting for the first time or have been part of Harbor Light for years, there is a place for you here.</p>
+        </div>
+        <img class="community-image" src="community-center.jpg" alt="Harbor Light Community Center People">
+      </div>
+    </section>
+
+    <section class="content-section" id="services">
+      <h2>Our Services</h2>
+      <p>Explore educational programs, practical community services, and activities designed to help people connect and thrive. Get in touch to learn about current offerings and how to take part.</p>
+    </section>
+
+    <section class="content-section" id="events" itemscope itemtype="http://schema.org/Event">
+      <h2>Join Our Events</h2>
+      <p itemprop="description">Celebrate the season with neighbors at our Annual Summer Festival, a welcoming gathering for the Harbor Light community.</p>
+      <p class="event">
+        <strong class="event-name" itemprop="name">Annual Summer Festival</strong><br>
+        <time itemprop="startDate" datetime="2050">Date and time to be announced</time>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <section class="contact" id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Us</h2>
+        <p>We would love to hear from you. Email us at <a href="mailto:info@harborlight.com">info@harborlight.com</a>.</p>
+      </section>
+      <p class="copyright">© 2050 Harbor Light Community Center</p>
+    </div>
+  </footer>
+</body>
+</html>
